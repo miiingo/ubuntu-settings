@@ -93,6 +93,8 @@ cd ubuntu-settings
 
 ### Error 1: hyper 계정에 sudo 권한 부여
 
+sudo: unable to resolve host blockchain-00x
+
 hyper 계정에 sudo 권한이 없어 설치 스크립트 실행에 오류가 발생할 경우, 다음 과정을 통해 권한을 부여해주어야 합니다.
 
 ```linux-config
@@ -102,17 +104,14 @@ sudo passwd root
 # root 권한으로 접속
 su
 
-# 그룹 권한 확인
-groups
+# sudo 명령어에 대한 설정 수정
+sudo vi /etc/sudoers
+# root    ALL=(ALL:ALL) ALL 라인 밑에
+# hyper   ALL=(ALL:ALL) ALL 내용 추가
 
-# sudo 그룹에 현재 계정 추가
-usermod -a -G sudo $(id -un)
-
-# 그룹 권한 재확인
-groups
-
-# 변경 권한 적용을 위한 시스템 재부팅
-reboot
+# host 변경
+sudo vi /etc/hosts
+# 'ubuntu-1604' 를 'blockchain-00x'(자신의 호스트명)로 바꿔준다.
 
 ```
 
