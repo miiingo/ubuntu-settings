@@ -32,6 +32,19 @@ git clone http://220.230.113.60:9010/honeybee/ubuntu-settings.git
 
 ```
 
+### hyper 계정 설정
+
+```linux-config
+# hyper 계정 설정
+useradd hyper
+# hyper 계정 비밀번호 설정: hyper
+passwd hyper
+
+# hyper 계정의 기본 shell: /bin/bash, home 디렉토리: /home/hyper
+usermod --shell /bin/bash --home /home/hyper hyper
+chown -R hyper:hyper /home/hyper
+```
+
 
 ## 설치(Install)
 
