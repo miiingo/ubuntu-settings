@@ -39,7 +39,8 @@ sudo docker run hello-world
 
 # 사용자에게 Docker 명령어 처리 가능하게 권한 부여
 echo "-> Add user into the docker group"
-sudo usermod -a -G docker $(id -un)
+#sudo usermod -a -G docker $(id -un)
+sudo chmod 666 /var/run/docker.sock
 
 ## Docker 버전 확인
 echo "-> Verify Docker CE version"
