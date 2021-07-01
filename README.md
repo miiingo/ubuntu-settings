@@ -28,8 +28,7 @@ sudo apt-get install git -y
 
 # Ubuntu Settings 프로젝트 다운로드
 cd ~
-git clone http://220.230.113.60:9010/honeybee/ubuntu-settings.git
-
+git clone https://github.com/miiingo/ubuntu-settings.git
 ```
 
 ### hyper 계정 설정
