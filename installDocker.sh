@@ -33,10 +33,6 @@ sudo apt-get update
 echo "-> Install the latest version of Docker CE"
 sudo apt-get -y install docker-ce
 
-## Docker CE 설치 확인
-echo "-> Verify that Docker CE is installed"
-sudo docker run hello-world
-
 # 사용자에게 Docker 명령어 처리 가능하게 권한 부여
 echo "-> Add user into the docker group"
 #sudo usermod -a -G docker $(id -un)
@@ -48,12 +44,12 @@ docker version
 
 echo
 
-# Docker Compose - 1.11.2 설치
-echo "####################### Install Docker Compose (version: 1.11.2) #######################"
+# Docker Compose - 1.29.2 설치
+echo "####################### Install Docker Compose (version: 1.29.2) #######################"
 
 ## Docker Compose 실행 파일 설치
-echo "-> Install Docker Compose (version: 1.11.2)"
-sudo curl -L "https://github.com/docker/compose/releases/download/1.11.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+echo "-> Install Docker Compose (version: 1.29.2)"
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
 ## Docker Compose 실행 권한 부여
 echo "-> Apply executable permissions to the Docker Compose"

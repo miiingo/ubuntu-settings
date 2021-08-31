@@ -2,13 +2,15 @@
 
 Ubuntu 기본 환경을 설치하는 스크립트 파일들입니다.
 
-1. createWorkspace.sh : workspace 생성
-2. installBasicUtils.sh : 기본 유틸 설치(build-essential, make, curl, unzip, g++, libtool)
+각 파일은 순서대로 실행해주어야 합니다.
+
+1. [필수] createWorkspace.sh : workspace 생성
+2. [필수] installBasicUtils.sh : 기본 유틸 설치(build-essential, make, curl, unzip, g++, libtool)
 3. installGitClient.sh : Git Client 설치
 4. installGo.sh : Go 언어 설치 및 실행 테스트(버전 1.10)
 5. installNodeJS.sh : Node.JS 설치(버전 선택: 8.x / 6.x)
 6. installJava.sh : Java 설치(JDK 버전 8)
-7. installDocker.sh : Docker & Docker Compose(버전 1.11.2) 설치
+7. installDocker.sh : Docker & Docker Compose(버전 1.29.2 - 21.08.31 기준 가장 최신 버전) 설치
 8. installAll.sh : 모든 도구들을 한 번에 설치
 9. changeDockerDir.sh : Docker의 운영 디렉토리 변경 (필요한 경우에만 직접 실행 필요)
 
@@ -78,7 +80,7 @@ cd ubuntu-settings
 # Java 설치(JDK 버전 8)
 ./installJava.sh
 
-# Docker & Docker Compose(버전 1.11.2) 설치
+# Docker & Docker Compose(버전 1.29.2) 설치
 ./installDocker.sh
 
 # Docker 운영 디렉토리 변경 (필요한 경우에만 직접 실행 필요)
