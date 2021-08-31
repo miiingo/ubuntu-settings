@@ -1,9 +1,36 @@
 #! /bin/bash
 # 이 프로그램은 bash를 기반으로 실행됩니다.
 
+function selectVersion () {
+    echo "select the version of Go lang to install."
+    select var in "version 1.10" "version 1.13" "Exit"
+    do
+        if [ "$var" = "version 1.10" ]
+        then
+            echo "-> Install Go lang(version 1.10)"
+            FILE_NAME="go1.10.linux-amd64.tar.gz"
+            break
+        elif [ "$var" = "version 1.13" ]
+        then
+            echo "-> Install Go lang(version 1.13)"
+            FILE_NAME="go1.13.linux-amd64.tar.gz"
+            break
+        elif [ "$var" = "Exit" ]
+        then
+            exit 1
+        else
+            echo "invalid response..."
+            selectVersion
+        fi
+    done
+}
 # Go 언어 설치
 echo "########################################################################################"
-echo "############################# Install Go lang(version 1.10) ############################"
+echo "#################################### Install Go lang ###################################"
+
+## Go 언어 설치 버전 선택
+echo "-> Select Go lang install version"
+selectVersion
 
 ## go 언어 설치 파일 다운로드 경로: /opt
 echo "-> Go to the Go lang install directory: /opt"
@@ -11,44 +38,45 @@ cd /opt
 
 ## go 언어 바이너리 파일 다운로드
 echo "-> Install Go binary file"
-sudo wget https://storage.googleapis.com/golang/go1.10.linux-amd64.tar.gz
+sudo wget https://storage.googleapis.com/golang/${FILE_NAME}
 
 ## go 언어 압축 해제
 echo "-> tar Go binary file"
-sudo tar -C /opt -xzf go1.10.linux-amd64.tar.gz
+sudo tar -C /opt -xzf ${FILE_NAME}
 
 ## go 언어 바이너리 파일 제거
 echo "-> remove Go binary file"
-sudo rm -rf go1.10.linux-amd64.tar.gz
+sudo rm -rf ${FILE_NAME}
 
 ## go 언어 패키지 설치
 echo "-> Install golang-go package"
 sudo apt install -y golang-go
 
 
-# go workspace 디렉토리 생성
-echo
-echo "############################# Create go workspace directory #############################"
+# # go workspace 디렉토리 생성
+# echo
+# echo "############################# Create go workspace directory #############################"
 
-## go 언어 설치 파일 다운로드 경로: /opt
-echo "-> Go to the Go lang install directory: /opt"
-cd /opt
+# ## go 언어 설치 파일 다운로드 경로: /opt
+# echo "-> Go to the Go lang install directory: /opt"
+# cd /opt
 
-## workspace 생성
-echo "-> Create workspace directory"
-sudo mkdir -vp gopath/{src,pkg,bin}
+# ## workspace 생성
+# echo "-> Create workspace directory"
+# sudo mkdir -vp gopath/{src,pkg,bin}
 
-## workspace 소유권 변경
-echo "-> Change workspace directory's ownership"
-sudo chown -R $(id -un):$(id -un) gopath
+# ## workspace 소유권 변경
+# echo "-> Change workspace directory's ownership"
+# sudo chown -R $(id -un):$(id -un) gopath
 
-## 기본 디렉터리 생성
-echo "-> Create basic directory"
-cd gopath/src
-mkdir github.com
-cd github.com
-mkdir hyperledger
-cd hyperledger
+# ## 기본 디렉터리 생성
+# echo "-> Create basic directory"
+# cd gopath/src
+# mkdir github.com
+# cd github.com
+# mkdir hyperledger
+# cd hyperledger
+
 
 # GOPATH 설정
 echo
@@ -73,33 +101,33 @@ source /etc/profile
 echo
 echo "####################### Check the Go lang is installed correctly ########################"
 
-## gopath에 hello 디렉터리 생성
-echo "-> Create \'hello\' directory into the GOPATH/src"
-cd /opt/gopath/src && mkdir hello
+# ## gopath에 hello 디렉터리 생성
+# echo "-> Create \'hello\' directory into the GOPATH/src"
+# cd /opt/gopath/src && mkdir hello
 
-## hello 디렉터리로 이동
-echo "-> GO to the \'hello\' directory"
-cd hello
+# ## hello 디렉터리로 이동
+# echo "-> GO to the \'hello\' directory"
+# cd hello
 
-## hello.go 파일 작성
-echo "-> Create and write \'hello.go\' file"
-echo 'package main
+# ## hello.go 파일 작성
+# echo "-> Create and write \'hello.go\' file"
+# echo 'package main
 
-import "fmt"
+# import "fmt"
 
-func main() {
-    fmt.Printf("hello, world\n")
-}' > $(pwd)/hello.go
+# func main() {
+#     fmt.Printf("hello, world\n")
+# }' > $(pwd)/hello.go
 
-## hello.go 파일 빌드
-echo "-> Build \'hello.go\' file"
-go build
+# ## hello.go 파일 빌드
+# echo "-> Build \'hello.go\' file"
+# go build
 
-## hello.go 파일 실행
-echo "-> Run \'hello.go\' file"
-./hello
+# ## hello.go 파일 실행
+# echo "-> Run \'hello.go\' file"
+# ./hello
 
-echo
+# echo
 
 ## Go 설치 확인
 echo "-> Verify Go version"

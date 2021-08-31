@@ -7,7 +7,7 @@ Ubuntu 기본 환경을 설치하는 스크립트 파일들입니다.
 1. [필수] createWorkspace.sh : workspace 생성
 2. [필수] installBasicUtils.sh : 기본 유틸 설치(build-essential, make, curl, unzip, g++, libtool)
 3. installGitClient.sh : Git Client 설치
-4. installGo.sh : Go 언어 설치 및 실행 테스트(버전 1.10)
+4. installGo.sh : Go 언어 설치 및 실행 테스트(버전 선택: 1.10 / 1.13)
 5. installNodeJS.sh : Node.JS 설치(버전 선택: 8.x / 6.x)
 6. installJava.sh : Java 설치(JDK 버전 8)
 7. installDocker.sh : Docker & Docker Compose(버전 1.29.2 - 21.08.31 기준 가장 최신 버전) 설치
@@ -23,7 +23,7 @@ Ubuntu Settings 프로젝트를 다운받기 위해, Git Client를 수동으로 
 
 설치 경로는 홈 디렉토리로 설정합니다.
 
-```linux-config
+```sh
 # Git Client 설치
 sudo apt update && sudo apt upgrade -y
 sudo apt-get install git -y
@@ -35,7 +35,7 @@ git clone https://github.com/miiingo/ubuntu-settings.git
 
 ### hyper 계정 설정
 
-```linux-config
+```sh
 # hyper 계정 설정
 useradd hyper
 # hyper 계정 비밀번호 설정: hyper
@@ -53,7 +53,7 @@ chown -R hyper:hyper /home/hyper
 ### 한 번에 모든 도구 설치
 
 모든 도구들을 한 번에 설치
-```linux-config
+```sh
 cd ubuntu-settings
 ./installAll.sh
 
@@ -61,7 +61,7 @@ cd ubuntu-settings
 
 ### 개별적으로 도구 설치
 
-```linux-config
+```sh
 # workspace 생성
 ./createWorkspace.sh
 
@@ -71,7 +71,7 @@ cd ubuntu-settings
 # Git Client 설치
 ./installGitClient.sh
 
-# Go 언어 설치 및 실행 테스트(버전 1.10)
+# Go 언어 설치 및 실행 테스트(버전 선택: 1.10 / 1.13)
 ./installGo.sh
 
 # Node.JS 설치(버전 선택: 8.x / 6.x)
@@ -98,7 +98,7 @@ sudo: unable to resolve host blockchain-00x
 
 hyper 계정에 sudo 권한이 없어 설치 스크립트 실행에 오류가 발생할 경우, 다음 과정을 통해 권한을 부여해주어야 합니다.
 
-```linux-config
+```sh
 # root 계정 비밀번호 설정
 sudo passwd root
 
@@ -123,7 +123,7 @@ E: dpkg was interrupted, you must manually run 'sudo dpkg --configure -a' to cor
 
 `apt-get install` 명령 수행 시 위와 같은 오류가 발생할 경우 다음 명령을 수행합니다.
 
-```linux-config
+```sh
 sudo dpkg --configure -a
 
 ```
@@ -135,7 +135,7 @@ sudo dpkg --configure -a
 
 설치 스크립트 실행 시 위와 같은 오류가 발생할 경우 다음 명령을 통해 실행 권한을 부여합니다.
 
-```linux-config
+```sh
 # chmod 775 <해당 쉘 스크립트 파일명>
 chmod 775 installAll.sh
 
