@@ -45,6 +45,15 @@ passwd hyper
 mkdir /home/hyper
 usermod --shell /bin/bash --home /home/hyper hyper
 chown -R hyper:hyper /home/hyper
+
+
+# alias 추가
+sudo vi ~/.bashrc
+------------------------------
+alias ll='ls -alF'
+------------------------------
+source ~/.bashrc
+
 ```
 
 
