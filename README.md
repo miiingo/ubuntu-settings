@@ -48,11 +48,15 @@ sudo chown -R hyper:hyper /home/hyper
 
 
 # alias 추가
-sudo vi ~/.bashrc
+# sudo vi ~/.bashrc
+# ~/.bashrc가 없는 경우 ~/.bash_profile에 설정
+sudo vi ~/.bash_profile
+
 ------------------------------
 alias ll='ls -alF'
 ------------------------------
-source ~/.bashrc
+# source ~/.bashrc
+source ~/.bash_profile
 
 ```
 
