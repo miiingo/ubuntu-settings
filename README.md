@@ -42,9 +42,9 @@ useradd hyper
 passwd hyper
 
 # hyper 계정의 기본 shell: /bin/bash, home 디렉토리: /home/hyper
-mkdir /home/hyper
-usermod --shell /bin/bash --home /home/hyper hyper
-chown -R hyper:hyper /home/hyper
+sudo mkdir /home/hyper
+sudo usermod --shell /bin/bash --home /home/hyper hyper
+sudo chown -R hyper:hyper /home/hyper
 
 
 # alias 추가
