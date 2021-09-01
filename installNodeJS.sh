@@ -3,9 +3,14 @@
 
 function selectVersion () {
     echo "select the version of NodeJS to install."
-    select var in "version 8.x" "version 6.x" "Exit"
+    select var in "version 12.x" "version 8.x" "version 6.x" "Exit"
     do
-        if [ "$var" = "version 8.x" ]
+        if [ "$var" = "version 12.x" ]
+        then
+            echo "############################## Install NodeJS(version 12.x) ##############################"
+            curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+            break
+        elif [ "$var" = "version 8.x" ]
         then
             echo "############################## Install NodeJS(version 8.x) ##############################"
             curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -

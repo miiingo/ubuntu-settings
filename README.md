@@ -8,7 +8,7 @@ Ubuntu 기본 환경을 설치하는 스크립트 파일들입니다.
 2. [필수] installBasicUtils.sh : 기본 유틸 설치(build-essential, make, curl, unzip, g++, libtool)
 3. installGitClient.sh : Git Client 설치
 4. installGo.sh : Go 언어 설치 및 실행 테스트(버전 선택: 1.10 / 1.13 / 1.15)
-5. installNodeJS.sh : Node.JS 설치(버전 선택: 8.x / 6.x)
+5. installNodeJS.sh : Node.JS 설치(버전 선택: 12.x / 8.x / 6.x)
 6. installJava.sh : Java 설치(JDK 버전 8)
 7. installDocker.sh : Docker & Docker Compose(버전 1.29.2 - 21.08.31 기준 가장 최신 버전) 설치
 8. installAll.sh : 모든 도구들을 한 번에 설치
@@ -114,7 +114,7 @@ source /etc/profile
 ## 설치 스크립트 실행
 ./installGo.sh
 
-# Node.JS 설치(버전 선택: 8.x / 6.x)
+# Node.JS 설치(버전 선택: 12.x / 8.x / 6.x)
 ./installNodeJS.sh
 
 # Java 설치(JDK 버전 8)
