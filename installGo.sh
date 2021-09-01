@@ -3,22 +3,22 @@
 
 function selectVersion () {
     echo "select the version of Go lang to install."
-    select var in "version 1.10" "version 1.13" "version 1.15" "Exit"
+    select var in "version 1.15" "version 1.13" "version 1.10" "Exit"
     do
-        if [ "$var" = "version 1.10" ]
+        if [ "$var" = "version 1.15" ]
         then
-            echo "-> Install Go lang(version 1.10)"
-            FILE_NAME="go1.10.linux-amd64.tar.gz"
+            echo "-> Install Go lang(version 1.15)"
+            FILE_NAME="go1.15.linux-amd64.tar.gz"
             break
         elif [ "$var" = "version 1.13" ]
         then
             echo "-> Install Go lang(version 1.13)"
             FILE_NAME="go1.13.linux-amd64.tar.gz"
             break
-        elif [ "$var" = "version 1.15" ]
+        elif [ "$var" = "version 1.10" ]
         then
-            echo "-> Install Go lang(version 1.15)"
-            FILE_NAME="go1.15.linux-amd64.tar.gz"
+            echo "-> Install Go lang(version 1.10)"
+            FILE_NAME="go1.10.linux-amd64.tar.gz"
             break
         elif [ "$var" = "Exit" ]
         then

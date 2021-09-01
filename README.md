@@ -7,7 +7,7 @@ Ubuntu 기본 환경을 설치하는 스크립트 파일들입니다.
 1. [필수] createWorkspace.sh : workspace 생성
 2. [필수] installBasicUtils.sh : 기본 유틸 설치(build-essential, make, curl, unzip, g++, libtool)
 3. installGitClient.sh : Git Client 설치
-4. installGo.sh : Go 언어 설치 및 실행 테스트(버전 선택: 1.10 / 1.13 / 1.15)
+4. installGo.sh : Go 언어 설치 및 실행 테스트(버전 선택: 1.15 / 1.13 / 1.10)
 5. installNodeJS.sh : Node.JS 설치(버전 선택: 12.x / 8.x / 6.x)
 6. installJava.sh : Java 설치(JDK 버전 8)
 7. installDocker.sh : Docker & Docker Compose(버전 1.29.2 - 21.08.31 기준 가장 최신 버전) 설치
@@ -101,7 +101,7 @@ cd ubuntu-settings
 # Git Client 설치
 ./installGitClient.sh
 
-# Go 언어 설치 및 실행 테스트(버전 선택: 1.10 / 1.13 / 1.15)
+# Go 언어 설치 및 실행 테스트(버전 선택: 1.15 / 1.13 / 1.10)
 ## GOPATH 설정
 sudo vi /etc/profile
 ################ 아래 내용 추가 #############
