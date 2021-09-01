@@ -3,7 +3,7 @@
 
 function selectVersion () {
     echo "select the version of Go lang to install."
-    select var in "version 1.10" "version 1.13" "Exit"
+    select var in "version 1.10" "version 1.13" "version 1.15" "Exit"
     do
         if [ "$var" = "version 1.10" ]
         then
@@ -14,6 +14,11 @@ function selectVersion () {
         then
             echo "-> Install Go lang(version 1.13)"
             FILE_NAME="go1.13.linux-amd64.tar.gz"
+            break
+        elif [ "$var" = "version 1.15" ]
+        then
+            echo "-> Install Go lang(version 1.15)"
+            FILE_NAME="go1.15.linux-amd64.tar.gz"
             break
         elif [ "$var" = "Exit" ]
         then
@@ -78,24 +83,24 @@ sudo apt install -y golang-go
 # cd hyperledger
 
 
-# GOPATH 설정
-echo
-echo "#################################### Setting GOPATH #####################################"
+# # GOPATH 설정
+# echo
+# echo "#################################### Setting GOPATH #####################################"
 
-## /etc/profile 파일 권한 변경
-echo "-> Change the permission to /etc/profile"
-sudo chmod 664 /etc/profile
+# ## /etc/profile 파일 권한 변경
+# echo "-> Change the permission to /etc/profile"
+# sudo chmod 664 /etc/profile
 
-## /etc/profile 파일에 GOPATH 추가
-echo "-> Add GOPATH to /etc/profile"
-sudo echo '
-export GOPATH="/opt/gopath"
-export GOROOT="/opt/go"
-export PATH=$GOROOT/bin:$GOPATH/bin:$PATH' >> /etc/profile
+# ## /etc/profile 파일에 GOPATH 추가
+# echo "-> Add GOPATH to /etc/profile"
+# sudo echo '
+# export GOPATH="/opt/gopath"
+# export GOROOT="/opt/go"
+# export PATH=$GOROOT/bin:$GOPATH/bin:$PATH' >> /etc/profile
 
-## /etc/profile 파일 설정 적용
-echo "-> Apply the /etc/profile setting"
-source /etc/profile
+# ## /etc/profile 파일 설정 적용
+# echo "-> Apply the /etc/profile setting"
+# source /etc/profile
 
 # Go언어 설치 완료 테스트
 echo
