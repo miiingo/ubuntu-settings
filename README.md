@@ -19,20 +19,6 @@ Ubuntu 기본 환경을 설치하는 스크립트 파일들입니다.
 
 ## Ubuntu Settings 기본 설정
 
-Ubuntu Settings 프로젝트를 다운받기 위해, Git Client를 수동으로 설치하고 프로젝트를 다운로드합니다.
-
-설치 경로는 홈 디렉토리로 설정합니다.
-
-```sh
-# Git Client 설치
-sudo apt update && sudo apt upgrade -y
-sudo apt-get install git -y
-
-# Ubuntu Settings 프로젝트 다운로드
-cd ~
-git clone https://github.com/miiingo/ubuntu-settings.git
-```
-
 ### hyper 계정 설정
 
 ```sh
@@ -46,7 +32,18 @@ sudo mkdir /home/hyper
 sudo usermod --shell /bin/bash --home /home/hyper hyper
 sudo chown -R hyper:hyper /home/hyper
 
+```
 
+이후 작업은 모두 `hyper` 계정에서 실행합니다!!!!!!
+
+
+### alias 추가
+
+`ll` 명령어를 사용하기 위해 다음 설정을 추가합니다.
+
+`~/.bashrc` 또는 `~/.bash_profile` 파일에 다음 내용을 추가하면 됩니다.
+
+```sh
 # alias 추가
 # sudo vi ~/.bashrc
 # ~/.bashrc가 없는 경우 ~/.bash_profile에 설정
@@ -55,9 +52,28 @@ sudo vi ~/.bash_profile
 ------------------------------
 alias ll='ls -alF'
 ------------------------------
+
+# alias 설정 적용
 # source ~/.bashrc
 source ~/.bash_profile
 
+```
+
+
+### Ubuntu Settings 다운로드
+
+Ubuntu Settings 프로젝트를 다운받기 위해, Git Client를 수동으로 설치하고 프로젝트를 다운로드합니다.
+
+설치 경로는 홈 디렉토리로 설정합니다.
+
+```sh
+# Git Client 설치
+sudo apt update && sudo apt upgrade -y
+sudo apt-get install git -y
+
+# Ubuntu Settings 프로젝트 다운로드
+cd ~
+git clone https://github.com/miiingo/ubuntu-settings.git
 ```
 
 
